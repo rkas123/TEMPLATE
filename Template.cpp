@@ -1,17 +1,17 @@
 #include<bits/stdc++.h>
 
-typedef long long ll;
-typedef long double ld;
+#define ll long long
+#define ld long double
 
-typedef pair<int,int> pii;
-typedef vector<int> vi;
-typedef vector<vi> vvi;
-typedef vector<pii> vpii;
+#define pii pair<int,int>
+#define vi vector<int> 
+#define vvi vector<vi> 
+#define vpii vector<pii> 
 
-typedef pair<ll,ll> pll;
-typedef vector<ll> vl;
-typedef vector<vl> vvl;
-typedef vector<pll> vpll; 
+#define pll pair<ll,ll> 
+#define vl vector<ll> 
+#define vvl vector<vl> 
+#define vpll vector<pll> 
 
 #define inl(x) ll x;cin>>x
 #define in(x) int x;cin>>x
@@ -40,6 +40,9 @@ const int mod = 1e9+7,MAX = 1e6+5;
 const ll inf = 1e18+5;
 const double pi = 3.14159265358979323846;
 
+//https://github.com/rkas123/TEMPLATE/blob/master/Template.cpp
+//Template taken from here
+
 using namespace std;
 
 ll power(ll x,ll y)
@@ -49,7 +52,7 @@ ll power(ll x,ll y)
     while(y)
     {
         if(y&1) temp=(temp*x);
-	//temp%=MOD;
+    //temp%=MOD;
         x=(x*x);
         y=y>>1;
     }
@@ -61,14 +64,36 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    //#ifndef ONLINE_JUDGE
-    //    freopen("input.txt", "r", stdin);
-    //    freopen("output.txt", "w", stdout);
-    //#endif
+    #ifndef ONLINE_JUDGE
+       freopen("input.txt", "r", stdin);
+       freopen("output.txt", "w", stdout);
+    #endif
 
-    test()
+    in(n);in(e);
+    mk(int,A,n+1);
+    lop1(i,n)
     {
-        
+        cin>>A[i];
     }
-    return 0;	
+
+    map<int,set<int>> m;
+    lop(i,e)
+    {
+        in(a);in(b);
+        m[A[a]].insert(A[b]);
+        m[A[b]].insert(A[a]);
+    }
+    int ans=-1;
+    int color=-1;
+    for(map<int,set<int>>::iterator it=m.begin();it!=m.end();it++)
+    {
+        int temp=it->S.size();
+        if(temp > ans)
+        {
+            ans=temp;
+            color=it->F;
+        }
+    }
+    cout<<color<<endl;
+    return 0;   
 }
