@@ -69,31 +69,6 @@ int main()
        freopen("output.txt", "w", stdout);
     #endif
 
-    in(n);in(e);
-    mk(int,A,n+1);
-    lop1(i,n)
-    {
-        cin>>A[i];
-    }
-
-    map<int,set<int>> m;
-    lop(i,e)
-    {
-        in(a);in(b);
-        m[A[a]].insert(A[b]);
-        m[A[b]].insert(A[a]);
-    }
-    int ans=-1;
-    int color=-1;
-    for(map<int,set<int>>::iterator it=m.begin();it!=m.end();it++)
-    {
-        int temp=it->S.size();
-        if(temp > ans)
-        {
-            ans=temp;
-            color=it->F;
-        }
-    }
-    cout<<color<<endl;
+    
     return 0;   
 }
