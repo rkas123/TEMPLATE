@@ -44,30 +44,14 @@ const double pi = 3.14159265358979323846;
 //Template taken from here
 
 using namespace std;
-
-ll power(ll x,ll y)
-{
-    ll temp=1ll;
-
-    while(y)
-    {
-        if(y&1) temp=(temp*x);
-    //temp%=MOD;
-        x=(x*x);
-        y=y>>1;
-    }
-    return temp;
-}
-
-
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    #ifndef ONLINE_JUDGE
-       freopen("input.txt", "r", stdin);
-       freopen("output.txt", "w", stdout);
-    #endif
+    //ios_base::sync_with_stdio(false);
+    //cin.tie(NULL);
+    //#ifndef ONLINE_JUDGE
+    //   freopen("input.txt", "r", stdin);
+    //   freopen("output.txt", "w", stdout);
+    //#endif
 
     
     return 0;   
