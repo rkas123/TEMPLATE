@@ -3,7 +3,7 @@
 
 int N=200005;    //Set the number of elements
 bool sieve[200005];
-
+vector<int> primes;
 void makeSieve()
 {
     for(int i=0;i<N;i++)
@@ -23,6 +23,41 @@ void makeSieve()
                 sieve[j]=false;
         }
     }
+    for(int i=2;i<N;i++)
+    {
+        if(sieve[i])
+            primes.pb(i);
+    }
+}
+
+
+//                                      Factorization Code
+
+const int N = 2e5 + 5;
+int smallestPrime[N];
+void setSmallestPrime()
+{
+    for (int i = 2; i < N; i++)
+        smallestPrime[i] = i;
+
+    for (int i = 2; i * i < N; i++)
+    {
+        for (int j = i * i; j < N; j += (i))
+        {
+            if (smallestPrime[j] == j)
+                smallestPrime[j] = i;
+        }
+    }
+}
+vector<int> factorize(int x)
+{
+    vector<int> ans;
+    while (x > 1)
+    {
+        ans.pb(smallestPrime[x]);
+        x /= smallestPrime[x];
+    }
+    return ans;
 }
 
 //                                      Fast Exponentiation 
@@ -39,7 +74,6 @@ int fastexp(int a,int b)
         b>>=1;
     }
     return ans;
-
 }
 
 
